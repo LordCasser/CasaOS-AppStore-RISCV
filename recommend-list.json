@@ -1,20 +1,11 @@
 [
   {
-    "appid": "homeassistant"
+    "appid": "pi-hole"
   },
   {
-    "appid": "adguard-home"
+    "appid": "next-cloud"
   },
   {
-    "appid": "jellyfin"
-  },
-  {
-    "appid": "photoprism"
-  },
-  {
-    "appid": "bazarr"
-  },
-  {
-    "appid": "lidarr"
+    "appid": "wg-easy"
   }
 ]

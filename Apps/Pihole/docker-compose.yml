@@ -6,7 +6,7 @@ services:
       TZ: $TZ
       VIRTUAL_HOST: pi.hole
       WEBPASSWORD: casaos
-    image: pihole/pihole:2023.11.0
+    image: pihole/pihole:2024.02.0
     deploy:
       resources:
         reservations:
@@ -96,6 +96,7 @@ x-casaos:
     - arm64
     - "386"
     - arm
+    - riscv64
   main: pihole
   author: CasaOS Team
   category: Network

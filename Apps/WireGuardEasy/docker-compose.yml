@@ -44,6 +44,7 @@ x-casaos:
     - amd64
     - arm
     - arm64
+    - riscv64
   main: wg-easy
   tagline:
     en_us: WEB UI to manage WireGuard VPN.

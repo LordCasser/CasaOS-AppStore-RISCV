@@ -28,3 +28,5 @@ if [ -d "${DEFAULT_APPSTORE_PATH}.new" ]; then
 else
     echo "🟨 New default appstore does not exist"
 fi
+
+echo "✅ setup-appstore.sh finished."
