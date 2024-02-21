@@ -1,11 +1,5 @@
 [
   {
-    "appid": "pi-hole"
-  },
-  {
     "appid": "next-cloud"
-  },
-  {
-    "appid": "wg-easy"
   }
 ]

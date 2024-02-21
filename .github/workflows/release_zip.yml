@@ -32,27 +32,27 @@ jobs:
           pushd /tmp
           zip -r main.zip build
             
-      - name: Checkout pages
-        uses: actions/checkout@v4
-        with:
-          ref: gh-pages
-          path: pages
+      # - name: Checkout pages
+      #   uses: actions/checkout@v4
+      #   with:
+      #     ref: gh-pages
+      #     path: pages
   
-      - name: Copy build to pages
-        run: |
-          cp /tmp/main.zip pages/store/main.zip
+      # - name: Copy build to pages
+      #   run: |
+      #     cp /tmp/main.zip pages/store/main.zip
       
-      - name: Pushes to another repository
-        uses: cpina/github-action-push-to-another-repository@main
-        env:
-          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB2 }}
-        with:
-          source-directory: 'pages'
-          destination-github-username: 'IceWhaleTech'
-          destination-repository-name: 'CasaOS-AppStore'
-          target-branch: 'gh-pages'
-          user-email: wiki@casaos.io
-          target-directory: ''
+      # - name: Pushes to another repository
+      #   uses: cpina/github-action-push-to-another-repository@main
+      #   env:
+      #     API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB2 }}
+      #   with:
+      #     source-directory: 'pages'
+      #     destination-github-username: 'IceWhaleTech'
+      #     destination-repository-name: 'CasaOS-AppStore'
+      #     target-branch: 'gh-pages'
+      #     user-email: wiki@casaos.io
+      #     target-directory: ''
 
       # - name: Upload to oss
       #   id: upload_to_oss
