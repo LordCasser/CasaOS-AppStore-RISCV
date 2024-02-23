@@ -1,0 +1,67 @@
+name: cloudreve
+services:
+  cloudreve:
+    container_name: cloudreve
+    image: lordcasser/cloudreve:latest
+    deploy:
+      resources:
+        reservations:
+          memory: "128M"
+    network_mode: bridge
+    ports:
+      - target: 5212
+        published: "5212"
+        protocol: tcp
+    restart: unless-stopped
+    volumes:
+      - type: bind
+        source: /DATA/AppData/$AppID/data
+        target: /data
+      - type: bind
+        source: /DATA/AppData/$AppID/uploads
+        target: /cloudreve/uploads
+      - type: bind
+        source: /DATA/AppData/$AppID/conf.ini
+        target: /cloudreve/conf.ini
+      - type: bind
+        source: /DATA/AppData/$AppID/avatar
+        target: /cloudreve/avatar
+      - type: bind
+        source: /DATA/AppData/$AppID/cloudreve.db
+        target: /cloudreve/cloudreve.db
+    x-casaos:
+      ports:
+        - container: "5212"
+          description:
+            en_us: WebUI HTTP Port
+            zh_cn: WebUI HTTP端口
+      volumes:
+        - container: /cloudreve
+          description:
+            en_us: cloudreve config directory.
+            zh_cn: cloudreve 配置目录
+x-casaos:            
+  architectures:
+    - riscv64
+  author: LordCasser
+  category: Cloud
+  description:
+    en_us: Self-hosted file management and sharing system, supports multiple storage providers.
+    zh_cn: 支持多家云存储的云盘系统
+  developer: cloudreve
+  icon: https://cdn.jsdelivr.net/gh/LordCasser/CasaOS-AppStore-CasaOS-AppStore-RISCV@main/Apps/Cloudreve/icon.png
+  screenshot_link:
+    - https://cdn.jsdelivr.net/gh/LordCasser/CasaOS-AppStore-CasaOS-AppStore-RISCV@main/Apps/Cloudreve/screenshot-1.png
+  main: cloudreve
+  port_map: "5212"
+  scheme: http
+  tagline:
+    en_us: Self-hosted file management and sharing system, supports multiple storage providers.
+    zh_cn: 支持多家云存储的云盘系统
+  thumbnail: https://cdn.jsdelivr.net/gh/LordCasser/CasaOS-AppStore-CasaOS-AppStore-RISCV@main/Apps/Cloudreve/screenshot-1.png
+  # tips:
+  #   before_install:
+  #     en_us: After installation, please check the initial password in the container log (Settings - TopRight - Terminal and Logs - Logs).
+  #     zh_cn: 安装完成后，请在容器日志（应用-设置-右上角-终端与日志-日志）中查看初始密码。
+  title:
+    en_us: Cloudreve
